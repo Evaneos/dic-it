@@ -32,7 +32,12 @@ class ReferenceResolver
 
         switch (1) {
             case $prefix    === '@'                                             : return $this->container->get(substr($reference, 1));
-            case $prefix    === '%'                                             : return $this->container->getParameter(substr($reference, 1));
+            case $prefix    === '%'                                             :
+                $container = $this->container;
+                $ref = preg_replace_callback("/%([^.]+)/", function ($matches) use ($container) {
+                        return $container->getParameter($matches[1]);
+                }, substr($reference, 1));
+                return $this->container->getParameter($ref);
             case preg_match(static::CONTAINER_REGEXP, $reference, $matches)     : return $this->container;
             case preg_match(static::ENVIRONMENT_REGEXP, $reference, $matches)   : return getenv($matches[1]);
             case preg_match(static::CONSTANT_REGEXP, $reference, $matches)      : return constant($matches[1]);
