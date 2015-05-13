@@ -18,17 +18,18 @@
         }
     },
     "require" : {
-        "symfony/yaml" : "2.5.x-dev"
-    },
-    "require-dev" : {
-        "squizlabs/php_codesniffer" : "~1.5",
-        "league/phpunit-coverage-listener" : "~1.0",
-        "phpunit/phpunit" : "~3.7",
-        "ocramius/proxy-manager" : "0.5.*",
+        "symfony/yaml" : "~2.6",
+        "ocramius/proxy-manager" : "~1.0",
         "zendframework/zend-xmlrpc" : "~2.2",
         "zendframework/zend-json" : "~2.2",
         "zendframework/zend-soap" : "~2.2",
         "guzzle/guzzle" : "~3.8"
+    },
+    "require-dev" : {
+        "squizlabs/php_codesniffer" : "~1.5",
+        "league/phpunit-coverage-listener" : "~1.0",
+        "phpunit/phpunit" : "~4.0"
+
     },
     "suggest" : {
         "ocramius/proxy-manager" : "To support injection of runtime generated proxies",
@@ -36,5 +37,10 @@
         "zendframework/zend-json" : "To support JSON-RPC remote object activation",
         "zendframework/zend-soap" : "To support SOAP remote object activation",
         "guzzle/guzzle" : "To support RESTful remote object activation"
+    },
+    "extra": {
+        "branch-alias": {
+          "dev-master": "1.0.x-dev"
+        }
     }
 }
