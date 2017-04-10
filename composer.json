@@ -18,7 +18,7 @@
         }
     },
     "require" : {
-        "symfony/yaml" : "~3.0"
+        "symfony/yaml" : "~2.8|~3.0"
     },
     "require-dev" : {
         "squizlabs/php_codesniffer" : "~1.5",
